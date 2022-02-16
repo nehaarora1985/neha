@@ -1,0 +1,26 @@
+<app-filter [all]="getAllCount()" [male]="getMaleCount()" [female]="getFemaleCount()" (onClick)="outputFun($event)"></app-filter>
+<br>
+<br>
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let headings of tableHeads">
+                {{headings |uppercase}}
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let data of students">
+            <tr *ngIf = "filter == 'All' || data.gender == filter">
+           
+            <td>{{data.name}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.dob}}</td>
+            <td>{{data.gender}}</td>
+        </tr>
+        </ng-container>
+    </tbody>
+</table>
